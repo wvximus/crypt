@@ -9,7 +9,7 @@ no_choice_flag = True
 
 while no_choice_flag:
 
-	choice = input("_N_crypt or _D_crypt: ").lower()
+	choice = input("N_crypt or D_crypt: ").lower()
 
 	# valid input, prompt filename and password
 	if choice == 'n' or choice == 'd':
@@ -26,10 +26,14 @@ while no_choice_flag:
 		if choice == 'n':
 			# encrypt
 			pyAesCrypt.encryptFile('target', filename, password, bufferSize)
-			# remove original file
-			os.system('rm target')
+
 		# decryption selected
 		elif choice == 'd':
 			# decrypt
 			pyAesCrypt.decryptFile('target', filename, password, bufferSize)
-			os.system('rm target')
+
+		# remove original file
+		os.system('rm target')
+
+	else:
+		print("Please enter 'n' for encryption or 'd' for decryption")
